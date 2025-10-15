@@ -9,6 +9,57 @@
   animation: fadeIn 0.6s ease-in-out forwards;
 }
 
+/* Airbnb-style custom scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+/* Applies to WebKit browsers (Chrome, Edge, Safari) */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px; /* scrollbar width */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f1f1f1; /* light gray track */
+  border-radius: 9999px; /* rounded track edges */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1; /* scrollbar thumb color */
+  border-radius: 9999px; /* rounded thumb */
+}
+
+.scrollbar-custom::-webkit-scrollbar-button {
+  display: none; /* hides up/down arrow buttons */
+}
+
+/* For Firefox */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+
+
+
 
 
 /* :root {

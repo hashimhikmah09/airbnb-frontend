@@ -10,35 +10,7 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 
 import PropertyCard from "./popularCard"
-
-import img1 from "../../assets/images/image1 (1).jpg"
-import img2 from "../../assets/images/image1 (2).jpg"
-import img3 from "../../assets/images/image1 (3).jpg"
-import img4 from "../../assets/images/image1 (4).jpg"
-import img5 from "../../assets/images/image1 (1).jpg"
-import img6 from "../../assets/images/image1 (2).jpg"
-import img7 from "../../assets/images/image1 (3).jpg"
-import img8 from "../../assets/images/image1 (4).jpg"
-
-const headerVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-}
-const slideVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } },
-}
-
-const properties = [
-  { id: 1, image: img1, title: "Room in Paddington", price: "$232 for 2 nights", rating: 4.9, isFavorite: true },
-  { id: 2, image: img2, title: "Room in Camberwell", price: "$152 for 2 nights", rating: 4.94, isFavorite: false },
-  { id: 3, image: img3, title: "Room in Camden", price: "$180 for 2 nights", rating: 4.98, isFavorite: true },
-  { id: 4, image: img4, title: "Room in Hackney", price: "$164 for 2 nights", rating: 4.97, isFavorite: true },
-  { id: 5, image: img5, title: "Studio in Shoreditch", price: "$198 for 2 nights", rating: 4.92, isFavorite: false },
-  { id: 6, image: img6, title: "Loft in Chelsea", price: "$270 for 2 nights", rating: 4.96, isFavorite: true },
-  { id: 7, image: img7, title: "Flat in Notting Hill", price: "$310 for 2 nights", rating: 4.99, isFavorite: true },
-  { id: 8, image: img8, title: "Apartment in Brixton", price: "$200 for 2 nights", rating: 4.89, isFavorite: false },
-]
+import { properties } from "../../components/data/properties"
 
 const PopularSection = () => {
   const swiperRef = useRef<SwiperType | null>(null)
@@ -55,12 +27,10 @@ const PopularSection = () => {
   return (
     <div className="mt-10 sm:mt-10 md:mt-50">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
-        {/* Header + Arrows */}
+        {/* Header */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={headerVariants}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
           className="flex items-center justify-between mb-4"
         >
           <div className="flex items-center gap-2 cursor-pointer hover:text-[#FF385C] transition">
@@ -69,12 +39,15 @@ const PopularSection = () => {
             </p>
             <FaChevronRight className="text-gray-700 hover:text-[#FF385C] transition" />
           </div>
+
           <div className="flex gap-2">
             <button
               onClick={() => swiperRef.current?.slidePrev()}
               disabled={isBeginning}
               className={`rounded-full w-6 h-6 flex items-center justify-center shadow-md transition-all duration-300 ${
-                isBeginning ? "bg-gray-200 cursor-not-allowed opacity-50" : "bg-gray-300 hover:bg-gray-400"
+                isBeginning
+                  ? "bg-gray-200 cursor-not-allowed opacity-50"
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
             >
               <FaChevronLeft size={18} className="text-black" />
@@ -83,7 +56,9 @@ const PopularSection = () => {
               onClick={() => swiperRef.current?.slideNext()}
               disabled={isEnd}
               className={`rounded-full w-6 h-6 flex items-center justify-center shadow-md transition-all duration-300 ${
-                isEnd ? "bg-pink-200 cursor-not-allowed opacity-50" : "bg-[#FF385C] hover:bg-[#ff526f]"
+                isEnd
+                  ? "bg-pink-200 cursor-not-allowed opacity-50"
+                  : "bg-[#FF385C] hover:bg-[#ff526f]"
               }`}
             >
               <FaChevronRight size={18} className="text-white" />
@@ -94,10 +69,8 @@ const PopularSection = () => {
         {/* Swiper Carousel */}
         <motion.div
           className="w-full"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={slideVariants}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } }}
         >
           <Swiper
             onSwiper={(swiper) => {
@@ -108,7 +81,6 @@ const PopularSection = () => {
             onSlideChange={handleSlideChange}
             modules={[Navigation, Pagination]}
             spaceBetween={12}
-            slidesOffsetBefore={0}
             breakpoints={{
               320: { slidesPerView: 2, spaceBetween: 10 },
               640: { slidesPerView: 2, spaceBetween: 12 },
