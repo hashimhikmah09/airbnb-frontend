@@ -106,6 +106,38 @@ const Navbar: React.FC = () => {
                 <span className="text-2xl font-bold text-red-500 tracking-tight hidden lg:inline">airbnb</span>
               </Link>
 
+              {/* Middle menu items */}
+<div className="hidden lg:flex justify-center items-center gap-6 mt-2">
+  <Link
+    to="/"
+    className={`flex items-center gap-1 font-medium px-2 py-1 rounded-full transition ${
+      location.pathname === "/" ? "bg-gray-200 text-gray-900" : "text-gray-900 hover:text-gray-700"
+    }`}
+  >
+    <Home size={18} /> <span>Home</span>
+  </Link>
+
+  <Link
+    to="/experiences"
+    className={`flex items-center gap-1 font-medium px-2 py-1 rounded-full transition relative ${
+      location.pathname === "/experiences" ? "bg-gray-200 text-gray-900" : "text-gray-900 hover:text-gray-700"
+    }`}
+  >
+    <Sparkles size={18} /> <span>Experiences</span>
+    <span className="absolute -top-2 left-7 bg-blue-800 text-white text-[10px] px-1 rounded-full">NEW</span>
+  </Link>
+
+  <Link
+    to="/services"
+    className={`flex items-center gap-1 font-medium px-2 py-1 rounded-full transition relative ${
+      location.pathname === "/services" ? "bg-gray-200 text-gray-900" : "text-gray-900 hover:text-gray-700"
+    }`}
+  >
+    <Briefcase size={18} /> <span>Services</span>
+    <span className="absolute -top-2 left-7 bg-blue-800 text-white text-[10px] px-1 rounded-full">NEW</span>
+  </Link>
+</div>
+
               <div className="flex items-center gap-4">
                 <Link
                   to="/become-a-host"

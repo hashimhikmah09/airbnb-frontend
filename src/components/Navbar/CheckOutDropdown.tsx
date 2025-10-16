@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   format,
   addMonths,
@@ -16,6 +16,7 @@ interface CheckOutDropdownProps {
   selectedDate: string | null;
   onDateSelect: (date: string | null) => void;
   setCheckOutLabel: (label: string) => void;
+   checkInDate: string | null;   
   setTimeFrame?: (label: string) => void;
 }
 
@@ -26,7 +27,7 @@ const CheckOutDropdown: React.FC<CheckOutDropdownProps> = ({
   onDateSelect,
   setTimeFrame,
 }) => {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [currentMonth, _setCurrentMonth] = useState(new Date());
   const [activeTab, setActiveTab] = useState<Tab>("Dates");
   const scrollRef = useRef<HTMLDivElement>(null);
 
