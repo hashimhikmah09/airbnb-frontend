@@ -22,7 +22,7 @@ const PropertyDetails = () => {
   const center: LatLngExpression = [property.location.lat, property.location.lng];
 
   return (
-    <div className="max-w-6xl mx-auto mt-45 px-4">
+    <div className="max-w-6xl mx-auto  mt-5 md:mt-44 sm:mt-10 px-4">
       {/* Subtitle */}
       {property.subtitle && <h2 className="text-2xl font-bold mb-4 mt-5">{property.subtitle}</h2>}
 
@@ -111,7 +111,7 @@ const PropertyDetails = () => {
       </div>
 
       {/* ===== Map ===== */}
-      <div className="mt-8 w-full h-80 md:h-96 rounded-2xl overflow-hidden mb-5">
+      <div className="mt-8 w-full h-80 md:h-96 rounded-2xl overflow-hidden mb-5 z-0 relative">
         <MapContainer center={center} zoom={13} scrollWheelZoom={false} className="w-full h-full">
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
