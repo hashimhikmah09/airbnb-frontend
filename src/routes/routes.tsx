@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Homepages from '../pages/Homepage';
 import Footer from '../components/Footer/footer';
 import PropertyDetails from '../pages/[slug]';
+import PhotoDetail from '../pages/photoDetails';
 
 
 
@@ -20,6 +21,7 @@ const Navigations = () => {
              {/* Desktop specific */}
              <Route path='/' element={<Homepages />} />
              <Route path="/property/:slug" element={<PropertyDetails />} />
+            <Route path="/property/:slug/photo/:index" element={<PhotoDetail />} />
 
              
          </Routes>
